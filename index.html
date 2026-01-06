@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵州龚氏办公家具有限公司 - 专业办公家具供应商</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, #1a3a5f 0%, #2c5282 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-name {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .company-slogan {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* 导航样式 */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-link {
+            padding: 18px 24px;
+            text-decoration: none;
+            color: #2c5282;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #1a365d;
+            border-bottom: 3px solid #2c5282;
+            background-color: #f7fafc;
+        }
+
+        /* 主内容区域 */
+        main {
+            padding: 40px 0;
+            min-height: 70vh;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #2c5282;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #edf2f7;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 80px;
+            height: 2px;
+            background-color: #2c5282;
+        }
+
+        h3 {
+            color: #1a365d;
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            padding-left: 10px;
+            border-left: 4px solid #2c5282;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* 联系信息样式 */
+        .contact-info {
+            background-color: #edf2f7;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .contact-icon {
+            color: #2c5282;
+            font-size: 1.2rem;
+        }
+
+        /* 产品展示样式 */
+        .product-category {
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            color: #2c5282;
+            margin-bottom: 10px;
+        }
+
+        .product-specs {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        .view-details {
+            display: inline-block;
+            margin-top: 10px;
+            color: #2c5282;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dashed #2c5282;
+            padding-bottom: 2px;
+            transition: color 0.2s;
+        }
+
+        .view-details:hover {
+            color: #1a365d;
+        }
+
+        /* 产品详情页样式 */
+        .product-detail-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-detail-container.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .product-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .back-button {
+            background-color: #2c5282;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #1a365d;
+        }
+
+        .product-detail-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .product-detail-images {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-detail-main-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .product-detail-thumbnails {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .product-thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .product-thumbnail:hover, .product-thumbnail.active {
+            border-color: #2c5282;
+        }
+
+        .product-detail-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-detail-name {
+            font-size: 2.2rem;
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+
+        .product-detail-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .product-detail-specs {
+            background-color: #f7fafc;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .spec-item {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #2d3748;
+            min-width: 120px;
+        }
+
+        .spec-value {
+            color: #4a5568;
+        }
+
+        .product-features {
+            margin-top: 25px;
+        }
+
+        .feature-list {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2c5282;
+            font-weight: bold;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #1a365d;
+            color: #cbd5e0;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #2d3748;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 2.2rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-link {
+                padding: 14px 20px;
+                border-bottom: 1px solid #edf2f7;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .product-detail-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .product-detail-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-name {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            section {
+                padding: 25px 15px;
+            }
+
+            .product-detail-name {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 页面头部 -->
+<header>
+    <div class="container">
+        <h1 class="company-name">贵州龚氏办公家具有限公司</h1>
+        <p class="company-slogan">专业办公家具解决方案供应商 · 品质与设计的完美结合</p>
+    </div>
+</header>
+
+<!-- 导航栏 -->
+<nav>
+    <div class="container nav-container">
+        <a href="#home" class="nav-link active" data-section="home">首页</a>
+        <a href="#about" class="nav-link" data-section="about">公司简介</a>
+        <a href="#products" class="nav-link" data-section="products">产品介绍</a>
+        <a href="#contact" class="nav-link" data-section="contact">联系我们</a>
+    </div>
+</nav>
+
+<!-- 主要内容区域 -->
+<main class="container">
+    <!-- 首页内容 -->
+    <section id="home" class="content-section active">
+        <h2>欢迎来到贵州龚氏办公家具</h2>
+        <p>贵州龚氏办公家具有限公司专注于提供高品质办公家具解决方案。我们致力于为各类企业打造高效、舒适、专业的办公环境，产品涵盖行政班台、会议桌、办公椅等系列。</p>
+        <p>凭借多年的行业经验和专业的团队，我们为客户提供从设计、生产到安装的一站式服务，确保每一个产品都能满足客户的需求。</p>
+
+        <div class="contact-info">
+            <h3>快速联系</h3>
+            <ul class="contact-list">
+                <li><span class="contact-icon">📞</span> 联系电话：17785286488</li>
+                <li><span class="contact-icon">📱</span> 联系电话：19917038469</li>
+                <li><span class="contact-icon">✉️</span> 电子邮箱：2748992113@qq.com</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 公司简介部分 -->
+    <section id="about" class="content-section">
+        <h2>公司简介</h2>
+        <p>贵州龚氏办公家具有限公司成立于2017年06月21日，注册地位于贵州省黔南布依族苗族自治州独山县国际汽车建材城4栋4层12至24、31至46号，法定代表人为龚长伟。</p>
+        <p>公司专注于办公家具、民用家具、健身器材、电脑耗材、家用电器销售。我们秉承"品质第一，客户至上"的经营理念，致力于为客户提供高品质、设计优良的办公家具解决方案。</p>
+        <p>我们的产品选用优质材料，结合现代人体工学设计，既注重实用性，又追求美观与舒适，为各类企业打造高效、舒适、专业的办公环境。</p>
+
+        <div class="contact-info">
+            <h3>联系我们</h3>
+            <ul class="contact-list">
+                <li><span class="contact-icon">📞</span> 联系电话：17785286488</li>
+                <li><span class="contact-icon">📱</span> 联系电话：19917038469</li>
+                <li><span class="contact-icon">✉️</span> 电子邮箱：2748992113@qq.com</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 产品介绍部分 -->
+    <section id="products" class="content-section">
+        <h2>产品介绍</h2>
+
+        <!-- 行政班台 -->
+        <div class="product-category">
+            <h3>行政班台</h3>
+            <div class="product-grid">
+                <!-- 极致班台 -->
+                <div class="product-card" data-product="1">
+                    <img src="微信图片_20260105144927_89_39.png" alt="极致班台" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">极致班台</h4>
+                        <p class="product-specs"><strong>材质：</strong>小山纹胡桃+咖灰金属漆</p>
+                        <p class="product-specs"><strong>尺寸：</strong>2600W*2150D*760H / 2400W*2150D*760H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 慕尚班台 -->
+                <div class="product-card" data-product="2">
+                    <img src="微信图片_20260105152514_92_39.png" alt="慕尚班台" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">慕尚班台</h4>
+                        <p class="product-specs"><strong>材质：</strong>直纹胡桃+咖啡灰色</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3600W*2400D*770H / 3200W*2400D*770H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 鸿泰班台 -->
+                <div class="product-card" data-product="3">
+                    <img src="微信图片_20260105153831_96_39.png" alt="鸿泰班台" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">鸿泰班台</h4>
+                        <p class="product-specs"><strong>材质：</strong>乌金木色+新阿玛尼灰岩板</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3600W*2480D*760H / 3200W*2430D*760H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 领御班台 -->
+                <div class="product-card" data-product="4">
+                    <img src="微信图片_20260105160728_106_39.png" alt="领御班台" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">领御班台</h4>
+                        <p class="product-specs"><strong>材质：</strong>乌金胡桃+深铁灰</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3600W*2680D*760H / 3200W*2480D*760H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 会议桌 -->
+        <div class="product-category">
+            <h3>会议桌</h3>
+            <div class="product-grid">
+                <!-- 瑞森会议桌 -->
+                <div class="product-card" data-product="5">
+                    <img src="微信图片_20260105154649_98_39.png" alt="瑞森会议桌" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">瑞森会议桌</h4>
+                        <p class="product-specs"><strong>材质：</strong>瑞士胡桃+深铁灰</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3000W*1300D*750H / 3600W*1400D*750H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 优格会议桌 -->
+                <div class="product-card" data-product="6">
+                    <img src="微信图片_20260105155151_100_39.png" alt="优格会议桌" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">优格会议桌</h4>
+                        <p class="product-specs"><strong>材质：</strong>进口暖白+玛雅胡桃</p>
+                        <p class="product-specs"><strong>尺寸：</strong>2400W*1100D*750H / 3600W*1200D*750H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 鸿泰会议桌 -->
+                <div class="product-card" data-product="7">
+                    <img src="微信图片_20260105160034_103_39.png" alt="鸿泰会议桌" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">鸿泰会议桌</h4>
+                        <p class="product-specs"><strong>材质：</strong>乌金木色+新阿玛尼灰岩板</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3600W*1350D*760H / 2400W*1100D*760H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式部分 -->
+    <section id="contact" class="content-section">
+        <h2>联系我们</h2>
+        <p>如果您对我们的产品或服务有任何疑问，欢迎随时与我们联系。我们的专业团队将为您提供优质的服务和解决方案。</p>
+
+        <div class="contact-info">
+            <ul class="contact-list">
+                <li><span class="contact-icon">🏢</span> 公司地址：贵州省黔南布依族苗族自治州独山县国际汽车建材城4栋4层12至24、31至46号</li>
+                <li><span class="contact-icon">📞</span> 联系电话：17785286488</li>
+                <li><span class="contact-icon">📱</span> 联系电话：19917038469</li>
+                <li><span class="contact-icon">✉️</span> 电子邮箱：2748992113@qq.com</li>
+                <li><span class="contact-icon">👨‍💼</span> 法定代表人：龚长伟</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 产品详情容器 -->
+    <section id="product-detail" class="product-detail-container">
+        <div class="product-detail-header">
+            <h2>产品详情</h2>
+            <button class="back-button" id="back-to-products">
+                <span>←</span> 返回产品列表
+            </button>
+        </div>
+
+        <div id="product-detail-content">
+            <!-- 产品详情内容将通过JavaScript动态生成 -->
+        </div>
+    </section>
+</main>
+
+<!-- 页脚 -->
+<footer>
+    <div class="container footer-content">
+        <div class="footer-logo">贵州龚氏办公家具有限公司</div>
+        <p>专业办公家具解决方案供应商 · 品质与设计的完美结合</p>
+        <p class="copyright">© 2017-2023 贵州龚氏办公家具有限公司 版权所有</p>
+    </div>
+</footer>
+
+<!-- 产品数据 -->
+<script>
+    // 产品数据
+    const products = {
+        1: {
+            id: 1,
+            name: "极致班台",
+            category: "行政班台",
+            images: [
+                "微信图片_20260105144927_89_39.png",
+                "微信图片_20260105145450_90_39.png",
+                "微信图片_20260105151010_91_39.png"
+            ],
+            material: "小山纹胡桃+咖灰金属漆",
+            dimensions: "2600W*2150D*760H / 2400W*2150D*760H",
+            description: "极致班台采用优质小山纹胡桃木与咖灰金属漆工艺结合，设计简约大气，线条流畅。适用于高层管理办公室，彰显尊贵与专业。",
+            features: [
+                "精选优质胡桃木材质，纹理自然美观",
+                "金属漆表面处理，耐磨耐腐蚀",
+                "人性化设计，符合人体工学",
+                "多功能储物空间设计",
+                "坚固耐用，承重能力强"
+            ],
+            price: "￥8,800 - ￥12,500"
+        },
+        2: {
+            id: 2,
+            name: "慕尚班台",
+            category: "行政班台",
+            images: [
+                "微信图片_20260105152514_92_39.png",
+                "微信图片_20260105152604_93_39.png",
+                "微信图片_20260105152604_94_39.png",
+                "微信图片_20260105152604_95_39.png"
+            ],
+            material: "直纹胡桃+咖啡灰色",
+            dimensions: "3600W*2400D*770H / 3200W*2400D*770H",
+            description: "慕尚班台采用直纹胡桃木与咖啡灰色调搭配，设计时尚大气，适合现代办公环境，展现企业高管的品味与权威。",
+            features: [
+                "直纹胡桃木，纹理清晰自然",
+                "咖啡灰色调，沉稳大气",
+                "超大办公空间，满足工作需求",
+                "隐藏式线缆管理系统",
+                "高品质五金配件，经久耐用"
+            ],
+            price: "￥12,000 - ￥18,500"
+        },
+        3: {
+            id: 3,
+            name: "鸿泰班台",
+            category: "行政班台",
+            images: [
+                "微信图片_20260105153831_96_39.png",
+                "微信图片_20260105153857_97_39.png"
+            ],
+            material: "乌金木色+新阿玛尼灰岩板",
+            dimensions: "3600W*2480D*760H / 3200W*2430D*760H",
+            description: "鸿泰班台采用乌金木色与新阿玛尼灰岩板结合，融合现代与古典元素，彰显尊贵气质，适合企业总裁办公室使用。",
+            features: [
+                "高档岩板桌面，耐刮耐磨",
+                "乌金木色，彰显尊贵气质",
+                "一体化设计，简约大气",
+                "加厚板材，承重性能优异",
+                "环保油漆，安全无害"
+            ],
+            price: "￥15,800 - ￥22,000"
+        },
+        4: {
+            id: 4,
+            name: "领御班台",
+            category: "行政班台",
+            images: [
+                "微信图片_20260105160728_106_39.png",
+                "微信图片_20260105160728_107_39.png",
+                "微信图片_20260105160728_108_39.png"
+            ],
+            material: "乌金胡桃+深铁灰",
+            dimensions: "3600W*2680D*760H / 3200W*2480D*760H",
+            description: "领御班台采用乌金胡桃与深铁灰配色，设计稳重典雅，线条流畅，彰显领导者的权威与品味，适合大型企业高管办公室。",
+            features: [
+                "乌金胡桃木，质感高级",
+                "深铁灰金属配件，沉稳大气",
+                "超大办公空间，满足多种需求",
+                "人性化设计，使用舒适",
+                "精工细作，细节处理完美"
+            ],
+            price: "￥18,500 - ￥26,000"
+        },
+        5: {
+            id: 5,
+            name: "瑞森会议桌",
+            category: "会议桌",
+            images: [
+                "微信图片_20260105154649_98_39.png",
+                "微信图片_20260105154649_99_39.png"
+            ],
+            material: "瑞士胡桃+深铁灰",
+            dimensions: "3000W*1300D*750H / 3600W*1400D*750H",
+            description: "瑞森会议桌采用瑞士胡桃木与深铁灰金属结合，设计简约现代，适合中小型会议室使用，提升会议效率与专业形象。",
+            features: [
+                "瑞士胡桃木，纹理优雅",
+                "深铁灰金属脚架，稳固耐用",
+                "圆角设计，安全防撞",
+                "预留线孔，方便设备使用",
+                "多种尺寸可选，满足不同需求"
+            ],
+            price: "￥6,800 - ￥9,500"
+        },
+        6: {
+            id: 6,
+            name: "优格会议桌",
+            category: "会议桌",
+            images: [
+                "微信图片_20260105155151_100_39.png",
+                "微信图片_20260105155152_101_39.png",
+                "微信图片_20260105155152_102_39.png"
+            ],
+            material: "进口暖白+玛雅胡桃",
+            dimensions: "2400W*1100D*750H / 3600W*1200D*750H",
+            description: "优格会议桌采用进口暖白色与玛雅胡桃木结合，设计时尚简约，适合现代办公环境，营造轻松高效的会议氛围。",
+            features: [
+                "进口暖白色桌面，简约时尚",
+                "玛雅胡桃木框架，自然优雅",
+                "轻量化设计，便于移动",
+                "环保材质，安全无害",
+                "性价比高，适合各类企业"
+            ],
+            price: "￥5,500 - ￥8,200"
+        },
+        7: {
+            id: 7,
+            name: "鸿泰会议桌",
+            category: "会议桌",
+            images: [
+                "微信图片_20260105160034_103_39.png",
+                "微信图片_20260105160034_104_39.png",
+                "微信图片_20260105160034_105_39.png"
+            ],
+            material: "乌金木色+新阿玛尼灰岩板",
+            dimensions: "3600W*1350D*760H / 2400W*1100D*760H",
+            description: "鸿泰会议桌采用乌金木色与新阿玛尼灰岩板结合，设计高端大气，适合大型企业会议室或董事会会议室使用。",
+            features: [
+                "新阿玛尼灰岩板桌面，高档耐磨",
+                "乌金木色框架，彰显尊贵",
+                "超大会议空间，容纳多人",
+                "一体化设计，简洁大气",
+                "高品质五金配件，稳固耐用"
+            ],
+            price: "￥12,500 - ￥18,800"
+        }
+    };
+</script>
+
+<script>
+    // 页面切换功能
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取所有内容区域
+        const contentSections = document.querySelectorAll('.content-section');
+        const productDetailContainer = document.getElementById('product-detail');
+        const backButton = document.getElementById('back-to-products');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // 初始显示首页
+        showSection('home');
+
+        // 导航链接点击事件
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+
+                // 隐藏产品详情页
+                productDetailContainer.classList.remove('active');
+
+                // 显示对应内容区域
+                showSection(sectionId);
+
+                // 更新导航链接状态
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 返回产品列表按钮
+        backButton.addEventListener('click', function() {
+            productDetailContainer.classList.remove('active');
+            showSection('products');
+
+            // 更新导航链接状态
+            navLinks.forEach(item => item.classList.remove('active'));
+            document.querySelector('.nav-link[data-section="products"]').classList.add('active');
+        });
+
+        // 产品卡片点击事件
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const productId = parseInt(this.getAttribute('data-product'));
+                showProductDetail(productId);
+
+                // 更新导航链接状态
+                navLinks.forEach(item => item.classList.remove('active'));
+            });
+        });
+
+        // 查看详情链接点击事件
+        document.querySelectorAll('.view-details').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.product-card');
+                const productId = parseInt(card.getAttribute('data-product'));
+                showProductDetail(productId);
+
+                // 更新导航链接状态
+                navLinks.forEach(item => item.classList.remove('active'));
+            });
+        });
+
+        // 显示指定内容区域的函数
+        function showSection(sectionId) {
+            contentSections.forEach(section => {
+                section.style.display = section.id === sectionId ? 'block' : 'none';
+            });
+        }
+
+        // 显示产品详情的函数
+        function showProductDetail(productId) {
+            const product = products[productId];
+            if (!product) return;
+
+            // 隐藏所有内容区域
+            contentSections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // 生成产品详情内容
+            const detailContent = document.getElementById('product-detail-content');
+            detailContent.innerHTML = `
+                    <div class="product-detail-content">
+                        <div class="product-detail-images">
+                            <img src="${product.images[0]}" alt="${product.name}" class="product-detail-main-img" id="main-product-img">
+                            <div class="product-detail-thumbnails">
+                                ${product.images.map((img, index) => `
+                                    <img src="${img}" alt="${product.name} - 图片${index + 1}"
+                                         class="product-thumbnail ${index === 0 ? 'active' : ''}"
+                                         data-img="${img}">
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="product-detail-info">
+                            <h1 class="product-detail-name">${product.name}</h1>
+                            <p class="product-detail-description">${product.description}</p>
+
+                            <div class="product-detail-specs">
+                                <h3>产品规格</h3>
+                                <div class="spec-item">
+                                    <div class="spec-label">产品分类：</div>
+                                    <div class="spec-value">${product.category}</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">主要材质：</div>
+                                    <div class="spec-value">${product.material}</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">产品尺寸：</div>
+                                    <div class="spec-value">${product.dimensions}</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">参考价格：</div>
+                                    <div class="spec-value">${product.price}</div>
+                                </div>
+                            </div>
+
+                            <div class="product-features">
+                                <h3>产品特点</h3>
+                                <ul class="feature-list">
+                                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+            // 显示产品详情容器
+            productDetailContainer.classList.add('active');
+
+            // 添加缩略图点击事件
+            document.querySelectorAll('.product-thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const mainImg = document.getElementById('main-product-img');
+                    mainImg.src = this.getAttribute('data-img');
+
+                    // 更新激活状态
+                    document.querySelectorAll('.product-thumbnail').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+        }
+
+        // 图片加载失败的备用方案
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                // 如果是产品图片，使用占位图
+                if (this.classList.contains('product-img') ||
+                    this.classList.contains('product-thumbnail') ||
+                    this.classList.contains('product-detail-main-img')) {
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9IiNlZGYyZjciPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIi8+PHRleHQgeD0iMjAwIiB5PSIxMjUiIGZvbnQtc2l6ZT0iMTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiM4YThlOTMiPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==';
+                    this.alt = '图片加载失败';
+                }
+            });
+        });
+
+        // 页面滚动时高亮导航链接
+        window.addEventListener('scroll', function() {
+            // 如果当前显示的是产品详情页，不执行导航高亮逻辑
+            if (productDetailContainer.classList.contains('active')) return;
+
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+            let currentSection = 'home';
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSection = section.id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
