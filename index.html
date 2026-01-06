@@ -59,16 +59,18 @@
         .nav-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .nav-link {
-            padding: 18px 24px;
+            padding: 18px 20px;
             text-decoration: none;
             color: #2c5282;
             font-weight: 600;
             transition: all 0.3s;
             border-bottom: 3px solid transparent;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .nav-link:hover, .nav-link.active {
@@ -153,7 +155,7 @@
 
         /* 产品展示样式 */
         .product-category {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .product-grid {
@@ -216,18 +218,20 @@
         }
 
         /* 产品详情页样式 */
-        .product-detail-container {
+        .product-detail-container,
+        .series-detail-container {
             display: none;
             opacity: 0;
             transition: opacity 0.3s;
         }
 
-        .product-detail-container.active {
+        .product-detail-container.active,
+        .series-detail-container.active {
             display: block;
             opacity: 1;
         }
 
-        .product-detail-header {
+        .detail-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -252,7 +256,8 @@
             background-color: #1a365d;
         }
 
-        .product-detail-content {
+        .product-detail-content,
+        .series-detail-content {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
@@ -263,20 +268,23 @@
             min-width: 300px;
         }
 
-        .product-detail-main-img {
+        .product-detail-main-img,
+        .series-detail-main-img {
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
         }
 
-        .product-detail-thumbnails {
+        .product-detail-thumbnails,
+        .series-thumbnails {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
 
-        .product-thumbnail {
+        .product-thumbnail,
+        .series-thumbnail {
             width: 80px;
             height: 80px;
             object-fit: cover;
@@ -286,22 +294,28 @@
             transition: border-color 0.2s;
         }
 
-        .product-thumbnail:hover, .product-thumbnail.active {
+        .product-thumbnail:hover,
+        .product-thumbnail.active,
+        .series-thumbnail:hover,
+        .series-thumbnail.active {
             border-color: #2c5282;
         }
 
-        .product-detail-info {
+        .product-detail-info,
+        .series-detail-info {
             flex: 1;
             min-width: 300px;
         }
 
-        .product-detail-name {
+        .product-detail-name,
+        .series-detail-name {
             font-size: 2.2rem;
             color: #1a365d;
             margin-bottom: 15px;
         }
 
-        .product-detail-description {
+        .product-detail-description,
+        .series-detail-description {
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 25px;
@@ -331,7 +345,8 @@
             color: #4a5568;
         }
 
-        .product-features {
+        .product-features,
+        .series-features {
             margin-top: 25px;
         }
 
@@ -352,6 +367,121 @@
             left: 0;
             color: #2c5282;
             font-weight: bold;
+        }
+
+        /* 系列展示样式 */
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .series-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .series-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .series-name {
+            font-size: 1.4rem;
+            color: #2c5282;
+            margin-bottom: 10px;
+        }
+
+        .series-description {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+
+        .series-images {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .series-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .series-products-count {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2c5282;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dashed #2c5282;
+            padding-bottom: 2px;
+        }
+
+        /* 系列详情中的产品展示 */
+        .series-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .series-product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .series-product-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .series-product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .series-product-info {
+            padding: 15px;
+        }
+
+        .series-product-name {
+            font-size: 1.1rem;
+            color: #2c5282;
+            margin-bottom: 8px;
+        }
+
+        /* 询价按钮样式 */
+        .inquiry-button {
+            display: inline-block;
+            background-color: #2c5282;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .inquiry-button:hover {
+            background-color: #1a365d;
         }
 
         /* 页脚样式 */
@@ -381,26 +511,30 @@
         }
 
         /* 响应式设计 */
+        @media (max-width: 992px) {
+            .nav-link {
+                padding: 14px 16px;
+                font-size: 0.95rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .company-name {
                 font-size: 2.2rem;
             }
 
             .nav-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .nav-link {
-                padding: 14px 20px;
-                border-bottom: 1px solid #edf2f7;
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 10px 0;
             }
 
             section {
                 padding: 30px 20px;
             }
 
-            .product-grid {
+            .product-grid,
+            .series-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -409,14 +543,19 @@
                 gap: 15px;
             }
 
-            .product-detail-header {
+            .detail-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
             }
 
-            .product-detail-content {
+            .product-detail-content,
+            .series-detail-content {
                 flex-direction: column;
+            }
+
+            .series-products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
@@ -437,8 +576,18 @@
                 padding: 25px 15px;
             }
 
-            .product-detail-name {
+            .product-detail-name,
+            .series-detail-name {
                 font-size: 1.8rem;
+            }
+
+            .nav-link {
+                padding: 12px 14px;
+                font-size: 0.9rem;
+            }
+
+            .series-card {
+                padding: 20px;
             }
         }
     </style>
@@ -458,6 +607,7 @@
         <a href="#home" class="nav-link active" data-section="home">首页</a>
         <a href="#about" class="nav-link" data-section="about">公司简介</a>
         <a href="#products" class="nav-link" data-section="products">产品介绍</a>
+        <a href="#series" class="nav-link" data-section="series">更多系列</a>
         <a href="#contact" class="nav-link" data-section="contact">联系我们</a>
     </div>
 </nav>
@@ -478,6 +628,8 @@
                 <li><span class="contact-icon">✉️</span> 电子邮箱：2748992113@qq.com</li>
             </ul>
         </div>
+
+        <a href="#contact" class="inquiry-button" data-section="contact">获取产品报价</a>
     </section>
 
     <!-- 公司简介部分 -->
@@ -500,6 +652,7 @@
     <!-- 产品介绍部分 -->
     <section id="products" class="content-section">
         <h2>产品介绍</h2>
+        <p>我们提供多种办公家具产品，满足不同企业需求。如需了解具体价格信息，请直接联系我们获取报价。</p>
 
         <!-- 行政班台 -->
         <div class="product-category">
@@ -511,7 +664,7 @@
                     <div class="product-info">
                         <h4 class="product-name">极致班台</h4>
                         <p class="product-specs"><strong>材质：</strong>小山纹胡桃+咖灰金属漆</p>
-                        <p class="product-specs"><strong>尺寸：</strong>2600W*2150D*760H / 2400W*2150D*760H</p>
+                        <p class="product-specs"><strong>尺寸：</strong>2600W*2150D*760H/2400W*2150D*760H</p>
                         <a class="view-details">查看详情 →</a>
                     </div>
                 </div>
@@ -522,7 +675,7 @@
                     <div class="product-info">
                         <h4 class="product-name">慕尚班台</h4>
                         <p class="product-specs"><strong>材质：</strong>直纹胡桃+咖啡灰色</p>
-                        <p class="product-specs"><strong>尺寸：</strong>3600W*2400D*770H / 3200W*2400D*770H</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3600W*2400D*770H/3200W*2400D*770H</p>
                         <a class="view-details">查看详情 →</a>
                     </div>
                 </div>
@@ -533,7 +686,7 @@
                     <div class="product-info">
                         <h4 class="product-name">鸿泰班台</h4>
                         <p class="product-specs"><strong>材质：</strong>乌金木色+新阿玛尼灰岩板</p>
-                        <p class="product-specs"><strong>尺寸：</strong>3600W*2480D*760H / 3200W*2430D*760H</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3600W*2480D*760H/3200W*2430D*760H</p>
                         <a class="view-details">查看详情 →</a>
                     </div>
                 </div>
@@ -544,7 +697,18 @@
                     <div class="product-info">
                         <h4 class="product-name">领御班台</h4>
                         <p class="product-specs"><strong>材质：</strong>乌金胡桃+深铁灰</p>
-                        <p class="product-specs"><strong>尺寸：</strong>3600W*2680D*760H / 3200W*2480D*760H</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3600W*2680D*760H/3200W*2480D*760H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 班台 -->
+                <div class="product-card" data-product="5">
+                    <img src="微信图片_20260106095251_136_39.png" alt="班台" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">班台</h4>
+                        <p class="product-specs"><strong>材质：</strong>优质木材</p>
+                        <p class="product-specs"><strong>尺寸：</strong>多种规格可选</p>
                         <a class="view-details">查看详情 →</a>
                     </div>
                 </div>
@@ -556,37 +720,292 @@
             <h3>会议桌</h3>
             <div class="product-grid">
                 <!-- 瑞森会议桌 -->
-                <div class="product-card" data-product="5">
+                <div class="product-card" data-product="6">
                     <img src="微信图片_20260105154649_98_39.png" alt="瑞森会议桌" class="product-img">
                     <div class="product-info">
                         <h4 class="product-name">瑞森会议桌</h4>
                         <p class="product-specs"><strong>材质：</strong>瑞士胡桃+深铁灰</p>
-                        <p class="product-specs"><strong>尺寸：</strong>3000W*1300D*750H / 3600W*1400D*750H</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3000W*1300D*750H/3600W*1400D*750H</p>
                         <a class="view-details">查看详情 →</a>
                     </div>
                 </div>
 
                 <!-- 优格会议桌 -->
-                <div class="product-card" data-product="6">
+                <div class="product-card" data-product="7">
                     <img src="微信图片_20260105155151_100_39.png" alt="优格会议桌" class="product-img">
                     <div class="product-info">
                         <h4 class="product-name">优格会议桌</h4>
                         <p class="product-specs"><strong>材质：</strong>进口暖白+玛雅胡桃</p>
-                        <p class="product-specs"><strong>尺寸：</strong>2400W*1100D*750H / 3600W*1200D*750H</p>
+                        <p class="product-specs"><strong>尺寸：</strong>2400W*1100D*750H/3600W*1200D*750H</p>
                         <a class="view-details">查看详情 →</a>
                     </div>
                 </div>
 
                 <!-- 鸿泰会议桌 -->
-                <div class="product-card" data-product="7">
-                    <img src="微信图片_20260105160034_103_39.png" alt="鸿泰会议桌" class="product-img">
+                <div class="product-card" data-product="8">
+                    <img src="微信图片_20260105160034_104_39.png" alt="鸿泰会议桌" class="product-img">
                     <div class="product-info">
                         <h4 class="product-name">鸿泰会议桌</h4>
                         <p class="product-specs"><strong>材质：</strong>乌金木色+新阿玛尼灰岩板</p>
-                        <p class="product-specs"><strong>尺寸：</strong>3600W*1350D*760H / 2400W*1100D*760H</p>
+                        <p class="product-specs"><strong>尺寸：</strong>3600W*1350D*760H/2400W*1100D*760H</p>
                         <a class="view-details">查看详情 →</a>
                     </div>
                 </div>
+
+                <!-- 启福会议桌 -->
+                <div class="product-card" data-product="9">
+                    <img src="微信图片_20260106095251_135_39.png" alt="启福会议桌" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">启福会议桌</h4>
+                        <p class="product-specs"><strong>材质：</strong>QF-H6401/QF-H4802</p>
+                        <p class="product-specs"><strong>尺寸：</strong>6400*1800*760mm/4800*1600*760mm</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 职员工位 -->
+        <div class="product-category">
+            <h3>职员工位</h3>
+            <div class="product-grid">
+                <!-- 屏风系列 -->
+                <div class="product-card" data-product="10">
+                    <img src="微信图片_20260105163041_109_39.png" alt="屏风系列" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">屏风系列</h4>
+                        <p class="product-specs"><strong>材质：</strong>欧橡+铁灰</p>
+                        <p class="product-specs"><strong>尺寸：</strong>W1545*D1400*H1100/mm</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 奥克职员工位 -->
+                <div class="product-card" data-product="11">
+                    <img src="微信图片_20260105163919_112_39.png" alt="奥克职员工位" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">奥克职员工位</h4>
+                        <p class="product-specs"><strong>材质：</strong>维也蜡木+琥珀棕</p>
+                        <p class="product-specs"><strong>尺寸：</strong>1200W*600D*750H/1400W*1200D*750H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 双人位职员工位 -->
+                <div class="product-card" data-product="12">
+                    <img src="微信图片_20260106094649_133_39.png" alt="双人位职员工位" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">双人位职员工位</h4>
+                        <p class="product-specs"><strong>材质：</strong>QF-Z1211-A/QF-Z1411-A</p>
+                        <p class="product-specs"><strong>尺寸：</strong>1200*1200*1050mm/1400*1200*1050mm</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 卡斯曼职员工位 -->
+                <div class="product-card" data-product="13">
+                    <img src="微信图片_20260105164745_115_39.png" alt="卡斯曼职员工位" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">卡斯曼职员工位</h4>
+                        <p class="product-specs"><strong>材质：</strong>奶油灰喷粉台面+星云灰脚</p>
+                        <p class="product-specs"><strong>尺寸：</strong>1400W*700D*750H/1600W*700D*750H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 办公沙发 -->
+        <div class="product-category">
+            <h3>办公沙发</h3>
+            <div class="product-grid">
+                <!-- HS-2008 -->
+                <div class="product-card" data-product="14">
+                    <img src="微信图片_20260105165250_117_39.png" alt="HS-2008" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">HS-2008</h4>
+                        <p class="product-specs"><strong>材质：</strong>牛皮/环保皮</p>
+                        <p class="product-specs"><strong>尺寸：</strong>920W*810D*650H/1910W*810D*650H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- MR-04 -->
+                <div class="product-card" data-product="15">
+                    <img src="微信图片_20260105165716_121_39.png" alt="MR-04" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">MR-04</h4>
+                        <p class="product-specs"><strong>材质：</strong>牛皮/环保皮</p>
+                        <p class="product-specs"><strong>尺寸：</strong>820W*830D*800H/1820W*820D*800H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- HS-2009 -->
+                <div class="product-card" data-product="16">
+                    <img src="微信图片_20260105170741_124_39.png" alt="HS-2009" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">HS-2009</h4>
+                        <p class="product-specs"><strong>材质：</strong>牛皮/环保皮</p>
+                        <p class="product-specs"><strong>尺寸：</strong>980W*830D*740H/2030W*830D*740H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- SF-001 -->
+                <div class="product-card" data-product="17">
+                    <img src="微信图片_20260106093207_127_39.png" alt="SF-001" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">SF-001</h4>
+                        <p class="product-specs"><strong>材质：</strong>T级真皮 主色ZT32+配色HB82</p>
+                        <p class="product-specs"><strong>尺寸：</strong>1100W*870D*800H/2100W*870D*800H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 茶桌休闲 -->
+        <div class="product-category">
+            <h3>茶桌休闲</h3>
+            <div class="product-grid">
+                <!-- 铭轩茶空间 -->
+                <div class="product-card" data-product="18">
+                    <img src="微信图片_20260106101220_140_39.png" alt="铭轩茶空间" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">铭轩茶空间</h4>
+                        <p class="product-specs"><strong>材质：</strong>乌金木色</p>
+                        <p class="product-specs"><strong>尺寸：</strong>2400W*850D*760H/2000W*800D*760H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 鸿泰茶空间 -->
+                <div class="product-card" data-product="19">
+                    <img src="微信图片_20260106101607_142_39.png" alt="鸿泰茶空间" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">鸿泰茶空间</h4>
+                        <p class="product-specs"><strong>材质：</strong>乌金木色</p>
+                        <p class="product-specs"><strong>尺寸：</strong>2400W*850D*760H/2000W*800D*760H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- 鸿泰茶空间（另一款） -->
+                <div class="product-card" data-product="20">
+                    <img src="微信图片_20260106101929_144_39.png" alt="鸿泰茶空间" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">鸿泰茶空间</h4>
+                        <p class="product-specs"><strong>材质：</strong>乌金木色</p>
+                        <p class="product-specs"><strong>尺寸：</strong>2400W*850D*760H/2000W*800D*760H</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 办公椅 -->
+        <div class="product-category">
+            <h3>办公椅</h3>
+            <div class="product-grid">
+                <!-- WD-CRA -->
+                <div class="product-card" data-product="21">
+                    <img src="微信图片_20260106102722_147_39.png" alt="WD-CRA" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">WD-CRA</h4>
+                        <p class="product-specs"><strong>材质：</strong>黑白</p>
+                        <p class="product-specs"><strong>尺寸：</strong>640*635*1165-1265cm</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- WD-CRA-0049 -->
+                <div class="product-card" data-product="22">
+                    <img src="微信图片_20260106103035_149_39.png" alt="WD-CRA-0049" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">WD-CRA-0049</h4>
+                        <p class="product-specs"><strong>材质：</strong>牛皮</p>
+                        <p class="product-specs"><strong>尺寸：</strong>750*770*1250cm</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- HS-188 -->
+                <div class="product-card" data-product="23">
+                    <img src="微信图片_20260106103313_150_39.png" alt="HS-188" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-name">HS-188</h4>
+                        <p class="product-specs"><strong>材质：</strong>黑色</p>
+                        <p class="product-specs"><strong>尺寸：</strong>常规</p>
+                        <a class="view-details">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h3>获取产品报价</h3>
+            <p>如需了解具体产品价格或有定制需求，请直接联系我们，我们的专业顾问将为您提供详细报价和解决方案。</p>
+            <ul class="contact-list">
+                <li><span class="contact-icon">📞</span> 联系电话：17785286488</li>
+                <li><span class="contact-icon">📱</span> 联系电话：19917038469</li>
+                <li><span class="contact-icon">✉️</span> 电子邮箱：2748992113@qq.com</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 更多系列部分 -->
+    <section id="series" class="content-section">
+        <h2>更多系列</h2>
+        <p>我们提供多种系列办公家具，满足不同企业需求，点击系列卡片查看详情。</p>
+
+        <div class="series-grid">
+            <!-- 启福系列 -->
+            <div class="series-card" data-series="1">
+                <h4 class="series-name">启福系列</h4>
+                <p class="series-description">高端办公家具系列，设计简约大气，适合大型企业</p>
+                <div class="series-images">
+                    <img src="微信图片_20260106103726_152_39.png" alt="启福系列" class="series-img">
+                    <img src="微信图片_20260106103726_153_39.png" alt="启福系列" class="series-img">
+                    <img src="微信图片_20260106103726_154_39.png" alt="启福系列" class="series-img">
+                </div>
+                <div class="series-products-count">包含6种产品 →</div>
+            </div>
+
+            <!-- 尚美系列 -->
+            <div class="series-card" data-series="2">
+                <h4 class="series-name">尚美系列</h4>
+                <p class="series-description">现代时尚设计，注重美学与功能结合</p>
+                <div class="series-images">
+                    <img src="微信图片_20260106104821_168_39.png" alt="尚美系列" class="series-img">
+                    <img src="微信图片_20260106104821_169_39.png" alt="尚美系列" class="series-img">
+                    <img src="微信图片_20260106104821_170_39.png" alt="尚美系列" class="series-img">
+                </div>
+                <div class="series-products-count">包含4种产品 →</div>
+            </div>
+
+            <!-- 红旗系列 -->
+            <div class="series-card" data-series="3">
+                <h4 class="series-name">红旗系列</h4>
+                <p class="series-description">经典商务风格，稳重典雅，适合传统企业</p>
+                <div class="series-images">
+                    <img src="微信图片_20260106105417_175_39.png" alt="红旗系列" class="series-img">
+                    <img src="微信图片_20260106105417_176_39.png" alt="红旗系列" class="series-img">
+                    <img src="微信图片_20260106105417_177_39.png" alt="红旗系列" class="series-img">
+                </div>
+                <div class="series-products-count">包含8种产品 →</div>
+            </div>
+
+            <!-- 大众系列 -->
+            <div class="series-card" data-series="4">
+                <h4 class="series-name">大众系列</h4>
+                <p class="series-description">经济实用型，适合中小企业，性价比高</p>
+                <div class="series-images">
+                    <img src="微信图片_20260106105800_180_39.png" alt="大众系列" class="series-img">
+                    <img src="微信图片_20260106105800_181_39.png" alt="大众系列" class="series-img">
+                    <img src="微信图片_20260106105800_182_39.png" alt="大众系列" class="series-img">
+                </div>
+                <div class="series-products-count">包含5种产品 →</div>
             </div>
         </div>
     </section>
@@ -597,6 +1016,8 @@
         <p>如果您对我们的产品或服务有任何疑问，欢迎随时与我们联系。我们的专业团队将为您提供优质的服务和解决方案。</p>
 
         <div class="contact-info">
+            <h3>获取产品报价</h3>
+            <p>请通过以下方式联系我们，获取详细的产品报价和定制方案：</p>
             <ul class="contact-list">
                 <li><span class="contact-icon">🏢</span> 公司地址：贵州省黔南布依族苗族自治州独山县国际汽车建材城4栋4层12至24、31至46号</li>
                 <li><span class="contact-icon">📞</span> 联系电话：17785286488</li>
@@ -609,7 +1030,7 @@
 
     <!-- 产品详情容器 -->
     <section id="product-detail" class="product-detail-container">
-        <div class="product-detail-header">
+        <div class="detail-header">
             <h2>产品详情</h2>
             <button class="back-button" id="back-to-products">
                 <span>←</span> 返回产品列表
@@ -618,6 +1039,20 @@
 
         <div id="product-detail-content">
             <!-- 产品详情内容将通过JavaScript动态生成 -->
+        </div>
+    </section>
+
+    <!-- 系列详情容器 -->
+    <section id="series-detail" class="series-detail-container">
+        <div class="detail-header">
+            <h2>系列详情</h2>
+            <button class="back-button" id="back-to-series">
+                <span>←</span> 返回系列列表
+            </button>
+        </div>
+
+        <div id="series-detail-content">
+            <!-- 系列详情内容将通过JavaScript动态生成 -->
         </div>
     </section>
 </main>
@@ -633,12 +1068,13 @@
 
 <!-- 产品数据 -->
 <script>
-    // 产品数据
+    // 产品数据（已移除价格字段）
     const products = {
         1: {
             id: 1,
             name: "极致班台",
             category: "行政班台",
+            series: "启福系列",
             images: [
                 "微信图片_20260105144927_89_39.png",
                 "微信图片_20260105145450_90_39.png",
@@ -653,13 +1089,13 @@
                 "人性化设计，符合人体工学",
                 "多功能储物空间设计",
                 "坚固耐用，承重能力强"
-            ],
-            price: "￥8,800 - ￥12,500"
+            ]
         },
         2: {
             id: 2,
             name: "慕尚班台",
             category: "行政班台",
+            series: "尚美系列",
             images: [
                 "微信图片_20260105152514_92_39.png",
                 "微信图片_20260105152604_93_39.png",
@@ -675,13 +1111,13 @@
                 "超大办公空间，满足工作需求",
                 "隐藏式线缆管理系统",
                 "高品质五金配件，经久耐用"
-            ],
-            price: "￥12,000 - ￥18,500"
+            ]
         },
         3: {
             id: 3,
             name: "鸿泰班台",
             category: "行政班台",
+            series: "红旗系列",
             images: [
                 "微信图片_20260105153831_96_39.png",
                 "微信图片_20260105153857_97_39.png"
@@ -695,13 +1131,13 @@
                 "一体化设计，简约大气",
                 "加厚板材，承重性能优异",
                 "环保油漆，安全无害"
-            ],
-            price: "￥15,800 - ￥22,000"
+            ]
         },
         4: {
             id: 4,
             name: "领御班台",
             category: "行政班台",
+            series: "红旗系列",
             images: [
                 "微信图片_20260105160728_106_39.png",
                 "微信图片_20260105160728_107_39.png",
@@ -716,13 +1152,33 @@
                 "超大办公空间，满足多种需求",
                 "人性化设计，使用舒适",
                 "精工细作，细节处理完美"
-            ],
-            price: "￥18,500 - ￥26,000"
+            ]
         },
         5: {
             id: 5,
+            name: "班台",
+            category: "行政班台",
+            series: "大众系列",
+            images: [
+                "微信图片_20260106095251_136_39.png",
+                "微信图片_20260106095251_137_39.png"
+            ],
+            material: "优质木材",
+            dimensions: "多种规格可选",
+            description: "经典班台设计，采用优质木材制作，适合各类办公环境，简约实用。",
+            features: [
+                "优质实木材质，经久耐用",
+                "简约设计，适合各种办公风格",
+                "多种尺寸规格可选",
+                "实用性强，满足基本办公需求",
+                "经典款式，永不过时"
+            ]
+        },
+        6: {
+            id: 6,
             name: "瑞森会议桌",
             category: "会议桌",
+            series: "启福系列",
             images: [
                 "微信图片_20260105154649_98_39.png",
                 "微信图片_20260105154649_99_39.png"
@@ -736,13 +1192,13 @@
                 "圆角设计，安全防撞",
                 "预留线孔，方便设备使用",
                 "多种尺寸可选，满足不同需求"
-            ],
-            price: "￥6,800 - ￥9,500"
+            ]
         },
-        6: {
-            id: 6,
+        7: {
+            id: 7,
             name: "优格会议桌",
             category: "会议桌",
+            series: "尚美系列",
             images: [
                 "微信图片_20260105155151_100_39.png",
                 "微信图片_20260105155152_101_39.png",
@@ -756,16 +1212,15 @@
                 "玛雅胡桃木框架，自然优雅",
                 "轻量化设计，便于移动",
                 "环保材质，安全无害",
-                "性价比高，适合各类企业"
-            ],
-            price: "￥5,500 - ￥8,200"
+                "适合各类企业会议室使用"
+            ]
         },
-        7: {
-            id: 7,
+        8: {
+            id: 8,
             name: "鸿泰会议桌",
             category: "会议桌",
+            series: "红旗系列",
             images: [
-                "微信图片_20260105160034_103_39.png",
                 "微信图片_20260105160034_104_39.png",
                 "微信图片_20260105160034_105_39.png"
             ],
@@ -778,8 +1233,411 @@
                 "超大会议空间，容纳多人",
                 "一体化设计，简洁大气",
                 "高品质五金配件，稳固耐用"
+            ]
+        },
+        9: {
+            id: 9,
+            name: "启福会议桌",
+            category: "会议桌",
+            series: "启福系列",
+            images: [
+                "微信图片_20260106095251_135_39.png",
+                "微信图片_20260106095251_136_39.png",
+                "微信图片_20260106095251_137_39.png"
             ],
-            price: "￥12,500 - ￥18,800"
+            material: "QF-H6401/QF-H4802",
+            dimensions: "6400*1800*760mm / 4800*1600*760mm",
+            description: "启福系列会议桌，专为大型会议室设计，提供充足的会议空间，适合企业大型会议、培训等活动。",
+            features: [
+                "启福系列高端产品",
+                "超大尺寸，容纳多人",
+                "坚固耐用，承重能力强",
+                "现代化设计，提升企业形象",
+                "可根据需求定制尺寸"
+            ]
+        },
+        10: {
+            id: 10,
+            name: "屏风系列",
+            category: "职员工位",
+            series: "启福系列",
+            images: [
+                "微信图片_20260105163041_109_39.png",
+                "微信图片_20260105163041_110_39.png",
+                "微信图片_20260105163041_111_39.png"
+            ],
+            material: "欧橡+铁灰",
+            dimensions: "W1545*D1400*H1100/mm，W3090*D2800*H1100/mm",
+            description: "屏风系列职员工位，采用欧橡材质与铁灰色调搭配，提供良好的隐私空间，适合开放式办公环境。",
+            features: [
+                "优质欧橡材质，环保耐用",
+                "铁灰色调，现代简约",
+                "良好的隔音效果，提供私密空间",
+                "灵活组合，适应不同空间",
+                "人性化设计，提升工作效率"
+            ]
+        },
+        11: {
+            id: 11,
+            name: "奥克职员工位",
+            category: "职员工位",
+            series: "尚美系列",
+            images: [
+                "微信图片_20260105163919_112_39.png",
+                "微信图片_20260105163919_113_39.png",
+                "微信图片_20260105163919_114_39.png"
+            ],
+            material: "维也蜡木+琥珀棕",
+            dimensions: "1200W*600D*750H/1400W*1200D*750H",
+            description: "奥克职员工位采用维也蜡木与琥珀棕配色，设计人性化，提供舒适的办公环境，适合长时间办公使用。",
+            features: [
+                "维也蜡木桌面，质感高级",
+                "琥珀棕配色，温暖舒适",
+                "人体工学设计，减少疲劳",
+                "充足储物空间，保持桌面整洁",
+                "灵活组合，适应团队需求"
+            ]
+        },
+        12: {
+            id: 12,
+            name: "双人位职员工位",
+            category: "职员工位",
+            series: "大众系列",
+            images: [
+                "微信图片_20260106094649_133_39.png",
+                "微信图片_20260106094649_134_39.png"
+            ],
+            material: "QF-Z1211-A/QF-Z1411-A",
+            dimensions: "1200*1200*1050mm/1400*1200*1050mm",
+            description: "双人位职员工位，专为团队协作设计，促进沟通与效率，适合项目团队使用。",
+            features: [
+                "双人协作设计，促进团队沟通",
+                "合理空间布局，提高工作效率",
+                "高品质材料，经久耐用",
+                "现代化设计，美观实用",
+                "灵活配置，满足不同需求"
+            ]
+        },
+        13: {
+            id: 13,
+            name: "卡斯曼职员工位",
+            category: "职员工位",
+            series: "大众系列",
+            images: [
+                "微信图片_20260105164745_115_39.png"
+            ],
+            material: "奶油灰喷粉台面+星云灰脚",
+            dimensions: "1400W*700D*750H/1600W*700D*750H",
+            description: "卡斯曼职员工位采用奶油灰喷粉台面与星云灰脚架设计，简约时尚，适合现代办公环境。",
+            features: [
+                "奶油灰喷粉台面，简约时尚",
+                "星云灰脚架，稳固耐用",
+                "现代简约设计，提升办公环境",
+                "人性化设计，使用舒适",
+                "适合个人办公或小型团队"
+            ]
+        },
+        14: {
+            id: 14,
+            name: "HS-2008",
+            category: "办公沙发",
+            series: "启福系列",
+            images: [
+                "微信图片_20260105165250_117_39.png",
+                "微信图片_20260105165250_118_39.png",
+                "微信图片_20260105165250_119_39.png",
+                "微信图片_20260105165250_120_39.png"
+            ],
+            material: "牛皮/环保皮",
+            dimensions: "920W*810D*650H/1910W*810D*650H",
+            description: "HS-2008办公沙发系列，采用优质牛皮或环保皮材质，设计舒适大方，适合接待区、休息区使用。",
+            features: [
+                "优质牛皮/环保皮材质，舒适耐用",
+                "人体工学设计，坐感舒适",
+                "多种尺寸可选，满足不同空间",
+                "简约大气设计，提升企业形象",
+                "适合接待区、休息区使用"
+            ]
+        },
+        15: {
+            id: 15,
+            name: "MR-04",
+            category: "办公沙发",
+            series: "尚美系列",
+            images: [
+                "微信图片_20260105165716_121_39.png",
+                "微信图片_20260105165716_122_39.png",
+                "微信图片_20260105165716_123_39.png"
+            ],
+            material: "牛皮/环保皮",
+            dimensions: "820W*830D*800H/1820W*820D*800H",
+            description: "MR-04办公沙发系列，现代简约设计，提供舒适的休息体验，适合办公休息区、等候区使用。",
+            features: [
+                "现代简约设计，时尚美观",
+                "高密度海绵填充，舒适耐用",
+                "实木框架，稳固结实",
+                "易清洁维护，使用寿命长",
+                "适合办公休息区、等候区"
+            ]
+        },
+        16: {
+            id: 16,
+            name: "HS-2009",
+            category: "办公沙发",
+            series: "红旗系列",
+            images: [
+                "微信图片_20260105170741_124_39.png",
+                "微信图片_20260105170742_125_39.png",
+                "微信图片_20260105170742_126_39.png"
+            ],
+            material: "牛皮/环保皮",
+            dimensions: "980W*830D*740H/2030W*830D*740H",
+            description: "HS-2009办公沙发系列，设计人性化，提供极致的舒适体验，适合高管办公室、贵宾接待区使用。",
+            features: [
+                "高端设计，彰显品味",
+                "优质填充物，坐感舒适",
+                "稳固框架结构，安全耐用",
+                "多种配色可选，搭配灵活",
+                "适合高管办公室、贵宾接待区"
+            ]
+        },
+        17: {
+            id: 17,
+            name: "SF-001",
+            category: "办公沙发",
+            series: "红旗系列",
+            images: [
+                "微信图片_20260106093207_127_39.png",
+                "微信图片_20260106093207_128_39.png",
+                "微信图片_20260106093207_129_39.png"
+            ],
+            material: "T级真皮 主色ZT32+配色HB82",
+            dimensions: "1100W*870D*800H/2100W*870D*800H",
+            description: "SF-001办公沙发，采用T级真皮材质，色彩搭配时尚，设计感强，适合现代办公空间。",
+            features: [
+                "T级真皮材质，质感高级",
+                "时尚色彩搭配，设计感强",
+                "人体工学设计，舒适支撑",
+                "优质五金配件，稳固耐用",
+                "适合现代办公空间"
+            ]
+        },
+        18: {
+            id: 18,
+            name: "铭轩茶空间",
+            category: "茶桌休闲",
+            series: "启福系列",
+            images: [
+                "微信图片_20260106101220_140_39.png",
+                "微信图片_20260106101220_141_39.png"
+            ],
+            material: "乌金木色",
+            dimensions: "2400W*850D*760H/2000W*800D*760H",
+            description: "铭轩茶空间系列，乌金木色设计，营造温馨舒适的茶歇环境，适合企业茶歇区、休息区使用。",
+            features: [
+                "乌金木色，温馨自然",
+                "合理尺寸设计，节省空间",
+                "优质实木材质，环保耐用",
+                "营造舒适茶歇环境",
+                "适合企业茶歇区、休息区"
+            ]
+        },
+        19: {
+            id: 19,
+            name: "鸿泰茶空间",
+            category: "茶桌休闲",
+            series: "红旗系列",
+            images: [
+                "微信图片_20260106101607_142_39.png",
+                "微信图片_20260106101607_143_39.png"
+            ],
+            material: "乌金木色",
+            dimensions: "2400W*850D*760H/2000W*800D*760H",
+            description: "鸿泰茶空间系列，乌金木色设计，简约大方，为企业员工提供舒适的休闲交流空间。",
+            features: [
+                "简约大方设计，实用性强",
+                "优质木材，环保健康",
+                "合理高度设计，使用舒适",
+                "营造轻松交流氛围",
+                "适合员工休闲区"
+            ]
+        },
+        20: {
+            id: 20,
+            name: "鸿泰茶空间",
+            category: "茶桌休闲",
+            series: "红旗系列",
+            images: [
+                "微信图片_20260106101929_144_39.png",
+                "微信图片_20260106101929_145_39.png",
+                "微信图片_20260106101929_146_39.png"
+            ],
+            material: "乌金木色",
+            dimensions: "2400W*850D*760H/2000W*800D*760H",
+            description: "鸿泰茶空间另一款式，乌金木色设计，功能齐全，为企业提供完善的茶歇休闲解决方案。",
+            features: [
+                "功能齐全，满足多种需求",
+                "乌金木色，典雅大方",
+                "储物空间设计，实用性强",
+                "适合小型会议、休闲交流",
+                "为企业提供完善的茶歇解决方案"
+            ]
+        },
+        21: {
+            id: 21,
+            name: "WD-CRA",
+            category: "办公椅",
+            series: "大众系列",
+            images: [
+                "微信图片_20260106102722_147_39.png",
+                "微信图片_20260106102722_148_39.png"
+            ],
+            material: "黑白",
+            dimensions: "640*635*1165-1265cm",
+            description: "WD-CRA办公椅，黑白配色经典时尚，人体工学设计，提供舒适的办公体验，适合长时间办公使用。",
+            features: [
+                "黑白配色，经典时尚",
+                "人体工学设计，舒适支撑",
+                "可调节高度，适应不同身高",
+                "透气材质，久坐不闷",
+                "适合长时间办公使用"
+            ]
+        },
+        22: {
+            id: 22,
+            name: "WD-CRA-0049",
+            category: "办公椅",
+            series: "红旗系列",
+            images: [
+                "微信图片_20260106103035_149_39.png"
+            ],
+            material: "牛皮",
+            dimensions: "750*770*1250cm",
+            description: "WD-CRA-0049办公椅，采用优质牛皮材质，高端大气，适合高管办公室使用，彰显身份与品味。",
+            features: [
+                "优质牛皮材质，质感高级",
+                "高端设计，彰显身份",
+                "舒适靠背，减少腰部疲劳",
+                "可旋转设计，使用灵活",
+                "适合高管办公室使用"
+            ]
+        },
+        23: {
+            id: 23,
+            name: "HS-188",
+            category: "办公椅",
+            series: "大众系列",
+            images: [
+                "微信图片_20260106103313_150_39.png",
+                "微信图片_20260106103313_151_39.png"
+            ],
+            material: "黑色",
+            dimensions: "常规",
+            description: "HS-188办公椅，黑色经典设计，实用性强，适合普通员工办公使用，性价比高。",
+            features: [
+                "黑色经典设计，百搭实用",
+                "舒适坐垫，久坐不累",
+                "稳固结构，安全耐用",
+                "适合普通员工办公使用",
+                "易于清洁和维护"
+            ]
+        }
+    };
+
+    // 系列数据
+    const seriesData = {
+        1: {
+            id: 1,
+            name: "启福系列",
+            description: "启福系列是我们公司的高端办公家具系列，专为大型企业和高端客户设计。该系列产品采用优质材料，结合现代设计理念，既注重实用性，又追求美学表现。启福系列产品线条简洁流畅，色彩搭配优雅，能够彰显企业的专业形象和高端品味。",
+            features: [
+                "高端定位，适合大型企业和高端客户",
+                "采用优质实木和环保材料",
+                "现代简约设计，线条流畅",
+                "注重细节处理，工艺精湛",
+                "提供定制化服务，满足个性化需求"
+            ],
+            images: [
+                "微信图片_20260106103726_152_39.png",
+                "微信图片_20260106103726_153_39.png",
+                "微信图片_20260106103726_154_39.png",
+                "微信图片_20260106103817_155_39.png",
+                "微信图片_20260106103817_156_39.png",
+                "微信图片_20260106103817_157_39.png",
+                "微信图片_20260106104212_159_39.png",
+                "微信图片_20260106104212_160_39.png",
+                "微信图片_20260106104212_161_39.png",
+                "微信图片_20260106104212_162_39.png",
+                "微信图片_20260106104212_163_39.png",
+                "微信图片_20260106104212_164_39.png",
+                "微信图片_20260106104212_165_39.png",
+                "微信图片_20260106104455_166_39.png",
+                "微信图片_20260106104455_167_39.png"
+            ],
+            productIds: [1, 6, 9, 10, 14, 18]
+        },
+        2: {
+            id: 2,
+            name: "尚美系列",
+            description: "尚美系列是现代时尚办公家具的代表，注重美学与功能的完美结合。该系列产品设计时尚新颖，色彩明快，适合创意型企业和现代办公环境。尚美系列不仅外观美观，更注重使用者的舒适体验，是现代办公空间的理想选择。",
+            features: [
+                "现代时尚设计，适合创意型企业",
+                "色彩明快，营造活力办公氛围",
+                "注重人体工学设计，使用舒适",
+                "灵活组合，适应不同空间布局",
+                "性价比高，适合成长型企业"
+            ],
+            images: [
+                "微信图片_20260106104821_168_39.png",
+                "微信图片_20260106104821_169_39.png",
+                "微信图片_20260106104821_170_39.png",
+                "微信图片_20260106104821_171_39.png",
+                "微信图片_20260106104821_172_39.png",
+                "微信图片_20260106104821_173_39.png",
+                "微信图片_20260106104821_174_39.png"
+            ],
+            productIds: [2, 7, 11, 15]
+        },
+        3: {
+            id: 3,
+            name: "红旗系列",
+            description: "红旗系列是经典商务风格的代表，设计稳重典雅，适合传统企业和政府机关。该系列产品采用深色系配色，材质厚重，体现企业的稳重与专业。红旗系列注重实用性和耐久性，是经久不衰的经典选择。",
+            features: [
+                "经典商务风格，适合传统企业",
+                "深色系配色，稳重典雅",
+                "材质厚重，经久耐用",
+                "注重实用功能，储物空间充足",
+                "适合政府机关和传统行业"
+            ],
+            images: [
+                "微信图片_20260106105417_175_39.png",
+                "微信图片_20260106105417_176_39.png",
+                "微信图片_20260106105417_177_39.png",
+                "微信图片_20260106105417_178_39.png",
+                "微信图片_20260106105417_179_39.png"
+            ],
+            productIds: [3, 4, 8, 16, 17, 19, 20, 22]
+        },
+        4: {
+            id: 4,
+            name: "大众系列",
+            description: "大众系列是经济实用型办公家具，专为中小企业和初创公司设计。该系列产品性价比高，功能实用，能够满足基本办公需求。大众系列设计简洁，易于搭配，是预算有限企业的理想选择。",
+            features: [
+                "经济实用，适合中小企业和初创公司",
+                "性价比高，功能实用",
+                "设计简洁，易于搭配",
+                "易于安装和维护",
+                "提供多种规格选择"
+            ],
+            images: [
+                "微信图片_20260106105800_180_39.png",
+                "微信图片_20260106105800_181_39.png",
+                "微信图片_20260106105800_182_39.png",
+                "微信图片_20260106105800_183_39.png",
+                "微信图片_20260106105800_184_39.png",
+                "微信图片_20260106105800_185_39.png"
+            ],
+            productIds: [5, 12, 13, 21, 23]
         }
     };
 </script>
@@ -790,7 +1648,9 @@
         // 获取所有内容区域
         const contentSections = document.querySelectorAll('.content-section');
         const productDetailContainer = document.getElementById('product-detail');
-        const backButton = document.getElementById('back-to-products');
+        const seriesDetailContainer = document.getElementById('series-detail');
+        const backToProductsButton = document.getElementById('back-to-products');
+        const backToSeriesButton = document.getElementById('back-to-series');
         const navLinks = document.querySelectorAll('.nav-link');
 
         // 初始显示首页
@@ -802,8 +1662,9 @@
                 e.preventDefault();
                 const sectionId = this.getAttribute('data-section');
 
-                // 隐藏产品详情页
+                // 隐藏详情页
                 productDetailContainer.classList.remove('active');
+                seriesDetailContainer.classList.remove('active');
 
                 // 显示对应内容区域
                 showSection(sectionId);
@@ -811,17 +1672,36 @@
                 // 更新导航链接状态
                 navLinks.forEach(item => item.classList.remove('active'));
                 this.classList.add('active');
+
+                // 滚动到顶部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
         // 返回产品列表按钮
-        backButton.addEventListener('click', function() {
+        backToProductsButton.addEventListener('click', function() {
             productDetailContainer.classList.remove('active');
             showSection('products');
 
             // 更新导航链接状态
             navLinks.forEach(item => item.classList.remove('active'));
             document.querySelector('.nav-link[data-section="products"]').classList.add('active');
+
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 返回系列列表按钮
+        backToSeriesButton.addEventListener('click', function() {
+            seriesDetailContainer.classList.remove('active');
+            showSection('series');
+
+            // 更新导航链接状态
+            navLinks.forEach(item => item.classList.remove('active'));
+            document.querySelector('.nav-link[data-section="series"]').classList.add('active');
+
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // 产品卡片点击事件
@@ -832,6 +1712,9 @@
 
                 // 更新导航链接状态
                 navLinks.forEach(item => item.classList.remove('active'));
+
+                // 滚动到顶部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
@@ -845,6 +1728,45 @@
 
                 // 更新导航链接状态
                 navLinks.forEach(item => item.classList.remove('active'));
+
+                // 滚动到顶部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // 系列卡片点击事件
+        document.querySelectorAll('.series-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const seriesId = parseInt(this.getAttribute('data-series'));
+                showSeriesDetail(seriesId);
+
+                // 更新导航链接状态
+                navLinks.forEach(item => item.classList.remove('active'));
+
+                // 滚动到顶部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // 询价按钮点击事件
+        document.querySelectorAll('.inquiry-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+
+                // 隐藏详情页
+                productDetailContainer.classList.remove('active');
+                seriesDetailContainer.classList.remove('active');
+
+                // 显示对应内容区域
+                showSection(sectionId);
+
+                // 更新导航链接状态
+                navLinks.forEach(item => item.classList.remove('active'));
+                document.querySelector(`.nav-link[data-section="${sectionId}"]`).classList.add('active');
+
+                // 滚动到顶部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
@@ -860,10 +1782,11 @@
             const product = products[productId];
             if (!product) return;
 
-            // 隐藏所有内容区域
+            // 隐藏所有内容区域和系列详情
             contentSections.forEach(section => {
                 section.style.display = 'none';
             });
+            seriesDetailContainer.classList.remove('active');
 
             // 生成产品详情内容
             const detailContent = document.getElementById('product-detail-content');
@@ -890,16 +1813,16 @@
                                     <div class="spec-value">${product.category}</div>
                                 </div>
                                 <div class="spec-item">
+                                    <div class="spec-label">所属系列：</div>
+                                    <div class="spec-value">${product.series}</div>
+                                </div>
+                                <div class="spec-item">
                                     <div class="spec-label">主要材质：</div>
                                     <div class="spec-value">${product.material}</div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-label">产品尺寸：</div>
                                     <div class="spec-value">${product.dimensions}</div>
-                                </div>
-                                <div class="spec-item">
-                                    <div class="spec-label">参考价格：</div>
-                                    <div class="spec-value">${product.price}</div>
                                 </div>
                             </div>
 
@@ -909,6 +1832,8 @@
                                     ${product.features.map(feature => `<li>${feature}</li>`).join('')}
                                 </ul>
                             </div>
+
+                            <a href="#contact" class="inquiry-button" data-section="contact">获取产品报价</a>
                         </div>
                     </div>
                 `;
@@ -929,6 +1854,126 @@
                     this.classList.add('active');
                 });
             });
+
+            // 为产品详情页中的询价按钮添加点击事件
+            const inquiryButton = detailContent.querySelector('.inquiry-button');
+            if (inquiryButton) {
+                inquiryButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    productDetailContainer.classList.remove('active');
+                    showSection('contact');
+
+                    // 更新导航链接状态
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    document.querySelector('.nav-link[data-section="contact"]').classList.add('active');
+
+                    // 滚动到顶部
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        }
+
+        // 显示系列详情的函数
+        function showSeriesDetail(seriesId) {
+            const series = seriesData[seriesId];
+            if (!series) return;
+
+            // 隐藏所有内容区域和产品详情
+            contentSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            productDetailContainer.classList.remove('active');
+
+            // 获取该系列的产品
+            const seriesProducts = series.productIds.map(id => products[id]).filter(p => p);
+
+            // 生成系列详情内容
+            const detailContent = document.getElementById('series-detail-content');
+            detailContent.innerHTML = `
+                    <div class="series-detail-content">
+                        <div class="product-detail-images">
+                            <img src="${series.images[0]}" alt="${series.name}" class="series-detail-main-img" id="main-series-img">
+                            <div class="series-thumbnails">
+                                ${series.images.slice(0, 6).map((img, index) => `
+                                    <img src="${img}" alt="${series.name} - 图片${index + 1}"
+                                         class="series-thumbnail ${index === 0 ? 'active' : ''}"
+                                         data-img="${img}">
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="series-detail-info">
+                            <h1 class="series-detail-name">${series.name}</h1>
+                            <p class="series-detail-description">${series.description}</p>
+
+                            <div class="product-features">
+                                <h3>系列特点</h3>
+                                <ul class="feature-list">
+                                    ${series.features.map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+
+                            <div class="product-features">
+                                <h3>包含产品 (${seriesProducts.length}种)</h3>
+                                <div class="series-products-grid">
+                                    ${seriesProducts.map(product => `
+                                        <div class="series-product-card" data-product="${product.id}">
+                                            <img src="${product.images[0]}" alt="${product.name}" class="series-product-img">
+                                            <div class="series-product-info">
+                                                <h4 class="series-product-name">${product.name}</h4>
+                                                <p class="product-specs"><strong>分类：</strong>${product.category}</p>
+                                                <p class="product-specs"><strong>材质：</strong>${product.material.split('+')[0]}...</p>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <a href="#contact" class="inquiry-button" data-section="contact">获取系列报价</a>
+                        </div>
+                    </div>
+                `;
+
+            // 显示系列详情容器
+            seriesDetailContainer.classList.add('active');
+
+            // 添加缩略图点击事件
+            document.querySelectorAll('.series-thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const mainImg = document.getElementById('main-series-img');
+                    mainImg.src = this.getAttribute('data-img');
+
+                    // 更新激活状态
+                    document.querySelectorAll('.series-thumbnail').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+
+            // 为系列中的产品卡片添加点击事件
+            document.querySelectorAll('.series-product-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-product'));
+                    showProductDetail(productId);
+                });
+            });
+
+            // 为系列详情页中的询价按钮添加点击事件
+            const inquiryButton = detailContent.querySelector('.inquiry-button');
+            if (inquiryButton) {
+                inquiryButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    seriesDetailContainer.classList.remove('active');
+                    showSection('contact');
+
+                    // 更新导航链接状态
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    document.querySelector('.nav-link[data-section="contact"]').classList.add('active');
+
+                    // 滚动到顶部
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
         }
 
         // 图片加载失败的备用方案
@@ -937,7 +1982,11 @@
                 // 如果是产品图片，使用占位图
                 if (this.classList.contains('product-img') ||
                     this.classList.contains('product-thumbnail') ||
-                    this.classList.contains('product-detail-main-img')) {
+                    this.classList.contains('product-detail-main-img') ||
+                    this.classList.contains('series-img') ||
+                    this.classList.contains('series-thumbnail') ||
+                    this.classList.contains('series-detail-main-img') ||
+                    this.classList.contains('series-product-img')) {
                     this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9IiNlZGYyZjciPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIi8+PHRleHQgeD0iMjAwIiB5PSIxMjUiIGZvbnQtc2l6ZT0iMTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiM4YThlOTMiPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==';
                     this.alt = '图片加载失败';
                 }
@@ -946,8 +1995,9 @@
 
         // 页面滚动时高亮导航链接
         window.addEventListener('scroll', function() {
-            // 如果当前显示的是产品详情页，不执行导航高亮逻辑
-            if (productDetailContainer.classList.contains('active')) return;
+            // 如果当前显示的是详情页，不执行导航高亮逻辑
+            if (productDetailContainer.classList.contains('active') ||
+                seriesDetailContainer.classList.contains('active')) return;
 
             const sections = document.querySelectorAll('.content-section');
             const navLinks = document.querySelectorAll('.nav-link[data-section]');
